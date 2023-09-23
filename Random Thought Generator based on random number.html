@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Thought Generator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .pseudo-3d{
+      font-style: italic;
+      padding: 15px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="jumbotron text-center">
+      <h1 class="display-4">Random Thought Generator</h1>
+      <p class="lead">Click the button to generate a random thought.</p>
+      <button id="generateButton" class="btn btn-primary">Generate</button>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card">
+          <div class="card-body text-center">
+            <p class="text-muted" id="placeholder">Random thought will appear here.</p>
+            <p id="thoughtDisplay" class="h4 pseudo-3d"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    let thoughts = [
+    "Life is a journey, not a destination.",
+      "The only way to do great work is to love what you do.",
+      "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "The future belongs to those who believe in the beauty of their dreams.",
+      "Happiness is not something ready-made. It comes from your own actions.",
+      "In the middle of every difficulty lies opportunity.",
+      "The only thing we have to fear is fear itself.",
+      "Believe you can and you're halfway there.",
+      "The best time to plant a tree was 20 years ago. The second best time is now.",
+      "Stay hungry, stay foolish."
+    ];
+
+    let thoughtDisplay = document.getElementById("thoughtDisplay");
+    let generateButton = document.getElementById("generateButton");
+    let placeholder=document.getElementById("placeholder");
+
+    generateButton.addEventListener("click", generateRandomThought);
+
+    function generateRandomThought() {
+      let randomIndex = Math.floor(Math.random() * thoughts.length);
+      let randomThought = thoughts[randomIndex];
+      thoughtDisplay.innerHTML = randomThought;
+      thoughtDisplay.style.backgroundColor="lightgrey";
+      placeholder.style.display="none"
+    }
+  </script>
+</body>
+</html>
+
